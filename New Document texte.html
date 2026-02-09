@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    img {
+      width: 250px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #cccccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img id="minion" src="minion-minion-loves.gif" alt="Minion with heart">
+
+  <h1 id="question">Will you be my Valentine? 💖</h1>
+
+  <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
+  <button id="noBtn" onclick="noClicked()">No 🙄</button>
+
+  <script>
+    let yesSize = 20;
+    let noClicks = 0;
+
+    function noClicked() {
+      noClicks++;
+
+      yesSize += 10;
+      document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+
+      // Shrink No button
+      document.getElementById("noBtn").style.fontSize = 
+        Math.max(8, 20 - noClicks * 2) + "px";
+
+      // Remove No button after enough clicks
+      if (noClicks >= 6) {
+        document.getElementById("noBtn").style.display = "none";
+      }
+    }
+
+    function yesClicked() {
+      document.getElementById("question").innerHTML = "YUPPIII 💕💖";
+      document.getElementById("minion").src = "minion happy.gif";
+
+      document.getElementById("yesBtn").style.display = "none";
+      document.getElementById("noBtn").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
